@@ -1,0 +1,125 @@
+import { VideoProject } from '../types';
+
+export const DEFAULT_DOMOTICA_PROJECT: VideoProject = {
+  id: 'domotica-basica-hogar-20s',
+  title: 'Domótica Básica para Hogar - Iluminación LED & Enchufes Inteligentes',
+  duration: 20,
+  aspectRatio: '16:9',
+  resolution: '720p',
+  veoModel: 'veo-3.1-fast-generate-preview',
+  maleVoice: 'Fenrir',
+  veoPrompt: 
+    'A cinematic 20-second commercial montage advertising smart home automation. ' +
+    'Scene 1 (0-6s): Modern cozy living room in the evening, warm hidden LED cove strip lighting smoothly illuminates the ceiling and baseboards with a soft ambient glow as a hand taps a smartphone screen. ' +
+    'Scene 2 (6-12s): Sleek floating TV media console and wall-mounted television illuminated from behind with synchronized RGB ambient backlight, transitioning smoothly from warm amber to cool cinema blue. ' +
+    'Scene 3 (12-16s): Luxury kitchen with illuminated under-cabinet LED strips, showing smart plugs on the wall with glowing indicator rings powering an espresso maker and modern kettle automatically. ' +
+    'Scene 4 (16-20s): Beautiful wide aesthetic shot of the modern smart home living room fully illuminated in harmonic lights, high-end commercial quality, 4k resolution, cinematic lighting, smooth slow-motion camera pan, warm and comfortable lifestyle feel.',
+  voiceoverScript: 
+    '¿Querés que tu casa trabaje para vos? Automatizá las luces LED de tu living, dale vida a tu rack de TV con iluminación ambiental de cine, y controlá tus electrodomésticos con enchufes inteligentes desde tu celular. Ganá comodidad, ahorrá energía y transformá tu hogar hoy mismo. ¡Contáctanos ahora!',
+  scenes: [
+    {
+      id: 'sc-1',
+      timeRange: '0s - 5s',
+      startSec: 0,
+      endSec: 5,
+      title: 'Living con Luces LED Cálidas',
+      visualPrompt: 'Living moderno con iluminación LED oculta en cielorraso encendiéndose suavemente mediante un toque.',
+      audioLine: '¿Querés que tu casa trabaje para vos? Automatizá las luces LED de tu living...',
+      ledColor: '#38bdf8', // Cyan / Sky blue glow
+      deviceType: 'led_living',
+      icon: 'LampCeiling',
+    },
+    {
+      id: 'sc-2',
+      timeRange: '5s - 10s',
+      startSec: 5,
+      endSec: 10,
+      title: 'Rack de TV Retroiluminado',
+      visualPrompt: 'TV rack y panel flotante con luz LED trasera ambiental que cambia dinámicamente como en el cine.',
+      audioLine: '...dale vida a tu rack de TV con iluminación ambiental de cine...',
+      ledColor: '#a855f7', // Purple neon glow
+      deviceType: 'tv_rack',
+      icon: 'Tv',
+    },
+    {
+      id: 'sc-3',
+      timeRange: '10s - 15s',
+      startSec: 10,
+      endSec: 15,
+      title: 'Cocina & Enchufes Inteligentes',
+      visualPrompt: 'Cocina inteligente con tiras LED bajo mesada y enchufes Wi-Fi que controlan el consumo y electrodomésticos.',
+      audioLine: '...y controlá tus electrodomésticos con enchufes inteligentes que ahorran energía.',
+      ledColor: '#10b981', // Emerald smart green
+      deviceType: 'smart_plug',
+      icon: 'Zap',
+    },
+    {
+      id: 'sc-4',
+      timeRange: '15s - 20s',
+      startSec: 15,
+      endSec: 20,
+      title: 'Llamado a la Acción (CTA)',
+      visualPrompt: 'Toma general del hogar inteligente iluminado con estilo y texto promocional de contacto en pantalla.',
+      audioLine: 'Ganá comodidad, ahorrá energía y transformá tu hogar hoy mismo. ¡Contáctanos ahora!',
+      ledColor: '#f59e0b', // Warm amber CTA
+      deviceType: 'cta_card',
+      icon: 'PhoneCall',
+    },
+  ],
+  branding: {
+    businessName: 'SmartHome Domótica',
+    phoneOrWhatsapp: '+54 9 11 3456-7890',
+    ctaMessage: 'Contáctanos y transforma tu hogar hoy mismo',
+    brandColor: '#3b82f6',
+    showWatermark: true,
+    showCaptions: true,
+    showContactBadge: true,
+  },
+};
+
+export const ALTERNATIVE_TEMPLATES: Array<{
+  id: string;
+  name: string;
+  description: string;
+  badge: string;
+  aspectRatio: '16:9' | '9:16';
+  veoPrompt: string;
+  voiceoverScript: string;
+}> = [
+  {
+    id: 'tpl-horizontal-standard',
+    name: 'Formato Horizontal (16:9) - Web & YouTube',
+    description: 'Cinematografía panorámica para mostrar el espacio completo del living y la cocina.',
+    badge: '16:9 Horizontal',
+    aspectRatio: '16:9',
+    veoPrompt: DEFAULT_DOMOTICA_PROJECT.veoPrompt,
+    voiceoverScript: DEFAULT_DOMOTICA_PROJECT.voiceoverScript,
+  },
+  {
+    id: 'tpl-vertical-reels',
+    name: 'Formato Vertical (9:16) - Instagram Reels & TikTok',
+    description: 'Encuadre vertical optimizado para redes sociales móviles con impacto visual rápido.',
+    badge: '9:16 Vertical',
+    aspectRatio: '9:16',
+    veoPrompt: 
+      'A cinematic vertical 9:16 commercial video advertising home automation for smartphones. ' +
+      'Fast-paced smooth cuts: First, a modern living room ceiling with warm LED hidden strips glowing dynamically. ' +
+      'Then, a close-up of a wall-mounted TV rack glowing with vibrant purple and cyan backlight. ' +
+      'Next, a kitchen counter with smart plugs clicking on with blue LED rings powering home gadgets. ' +
+      'Finally, an elegant modern apartment interior with cozy ambient illumination and a final sleek commercial presentation. High-end lighting, photorealistic, 4K.',
+    voiceoverScript: 
+      '¿Todavía encendés las luces manualmente? Automatizá tu casa con luces LED inteligentes, rack de TV con ambientación de cine y enchufes programables. Mayor confort y menor consumo de energía. ¡Escribinos hoy y modernizá tu espacio!',
+  },
+  {
+    id: 'tpl-energy-efficiency',
+    name: 'Enfoque Confort & Ahorro Energético (20s)',
+    description: 'Resalta la eficiencia energética de los enchufes inteligentes y la durabilidad LED.',
+    badge: 'Eco & Ahorro',
+    aspectRatio: '16:9',
+    veoPrompt: 
+      'Cinematic 20-second commercial focused on energy efficiency and smart home automation. ' +
+      'A sleek apartment showing smart wall plugs automatically regulating power consumption for appliances, accompanied by energy-saving smart LED strips illuminating cabinets and television consoles. Cozy, modern, tech-forward, photorealistic.',
+    voiceoverScript: 
+      'Reducí tu consumo eléctrico y viví con máximo confort. Con nuestra domótica básica, tus luces LED y enchufes inteligentes se apagan cuando no los usás y crean la atmósfera perfecta cuando estás en casa. Contactanos y transformá tu hogar hoy.',
+  },
+];
