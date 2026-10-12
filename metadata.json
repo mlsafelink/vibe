@@ -1,0 +1,6 @@
+{
+  "name": "DomoVibe - Creador de Videos para Domótica del Hogar",
+  "description": "Crea videos publicitarios cinematográficos con Veo 3 y locución profesional masculina para ofrecer servicios de domótica básica, luces LED y enchufes inteligentes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
