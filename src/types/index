@@ -1,0 +1,47 @@
+export type AspectRatio = '16:9' | '9:16';
+export type Resolution = '720p' | '1080p';
+export type MaleVoice = 'Fenrir' | 'Charon' | 'Puck';
+
+export interface Scene {
+  id: string;
+  timeRange: string;
+  startSec: number;
+  endSec: number;
+  title: string;
+  visualPrompt: string;
+  audioLine: string;
+  ledColor: string;
+  deviceType: 'led_living' | 'tv_rack' | 'smart_plug' | 'cta_card';
+  icon: string;
+}
+
+export interface VideoProject {
+  id: string;
+  title: string;
+  duration: number; // 20s
+  aspectRatio: AspectRatio;
+  resolution: Resolution;
+  veoModel: 'veo-3.1-fast-generate-preview';
+  veoPrompt: string;
+  voiceoverScript: string;
+  maleVoice: MaleVoice;
+  scenes: Scene[];
+  branding: {
+    businessName: string;
+    phoneOrWhatsapp: string;
+    ctaMessage: string;
+    brandColor: string;
+    showWatermark: boolean;
+    showCaptions: boolean;
+    showContactBadge: boolean;
+  };
+}
+
+export interface GenerationStatus {
+  isGenerating: boolean;
+  stage: 'idle' | 'starting' | 'rendering_veo' | 'generating_tts' | 'processing' | 'done' | 'error';
+  progress: number;
+  message: string;
+  operationName?: string;
+  error?: string;
+}
